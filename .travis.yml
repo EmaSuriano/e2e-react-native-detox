@@ -10,6 +10,7 @@ env:
     - NODE_VERSION=stable
 
 cache:
+  yarn: true
   directories:
     - node_modules
 
