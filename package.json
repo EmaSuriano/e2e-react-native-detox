@@ -6,7 +6,7 @@
     "start": "react-native start",
     "test": "jest",
     "e2e": "detox test",
-    "e2e:ci": "detox build && npm run e2e"
+    "e2e:ci": "detox build && npm run e2e -- --cleanup"
   },
   "dependencies": {
     "react": "16.8.6",
