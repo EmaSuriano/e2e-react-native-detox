@@ -1,4 +1,5 @@
 language: objective-c
+osx_image: xcode10.2
 
 branches:
   only:
@@ -16,7 +17,11 @@ install:
   - nvm install $NODE_VERSION
   - nvm use $NODE_VERSION
   - nvm alias default $NODE_VERSION
+
+  - npm install -g react-native-cli
+  - npm install -g detox-cli
   - npm install
 
 script:
-  - npm run e2e:ci
+  - detox build --configuration ios.release
+  - detox test --configuration ios.release --cleanup
