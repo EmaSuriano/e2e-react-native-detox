@@ -4,10 +4,9 @@
   "private": true,
   "scripts": {
     "start": "react-native start",
-    "bundle:ios": "react-native bundle --dev false --entry-file index.js --bundle-output ./ios/main.jsbundle --platform ios",
     "test": "jest",
-    "e2e:ios": "detox test -c ios",
-    "e2e:ios:ci": "detox build -c ios && npm run e2e:ios"
+    "e2e": "detox test",
+    "e2e:ci": "detox build && npm run e2e"
   },
   "dependencies": {
     "react": "16.8.6",
@@ -29,7 +28,7 @@
   "detox": {
     "test-runner": "jest",
     "configurations": {
-      "ios": {
+      "ios.release": {
         "binaryPath": "./ios/build/Build/Products/Release-iphonesimulator/testReactNative.app",
         "build": "xcodebuild -workspace ios/testReactNative.xcworkspace -configuration release -scheme testReactNative -sdk iphonesimulator -derivedDataPath ios/build",
         "type": "ios.simulator",
