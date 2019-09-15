@@ -5,8 +5,9 @@
   "scripts": {
     "start": "react-native start",
     "test": "jest",
-    "e2e": "detox test",
-    "e2e:ci": "detox build && npm run e2e -- --cleanup"
+    "e2e:test": "detox test -c ios.release",
+    "e2e:build": "detox build -c ios.release",
+    "e2e:ci": "npm run e2e:build && npm run e2e -- --cleanup"
   },
   "dependencies": {
     "react": "16.8.6",
