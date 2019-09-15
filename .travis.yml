@@ -9,17 +9,6 @@ env:
   global:
     - NODE_VERSION=stable
 
-cache:
-  yarn: true
-  directories:
-    - node_modules
-
-before_install:
-  - sudo apt-key adv --fetch-keys http://dl.yarnpkg.com/debian/pubkey.gpg
-  - echo "deb http://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-  - sudo apt-get update -qq
-  - sudo apt-get install -y -qq yarn
-
 install:
   - brew tap wix/brew
   - brew install applesimutils
@@ -28,7 +17,10 @@ install:
   - nvm install $NODE_VERSION
   - nvm use $NODE_VERSION
   - nvm alias default $NODE_VERSION
-  - yarn
+
+  - npm install -g react-native-cli
+  - npm install -g detox-cli
 
 script:
-  - yarn e2e:ci
+  - detox build
+  - detox test --cleanup
