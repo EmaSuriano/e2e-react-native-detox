@@ -9,6 +9,10 @@ env:
   global:
     - NODE_VERSION=stable
 
+cache:
+  directories:
+    - node_modules
+
 install:
   - brew tap wix/brew
   - brew install applesimutils
@@ -22,5 +26,4 @@ install:
   - npm install -g detox-cli
 
 script:
-  - detox build --configuration ios.sim.release
-  - detox test --configuration ios.sim.release --cleanup
+  - npm run e2e:ci
