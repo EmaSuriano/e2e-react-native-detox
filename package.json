@@ -4,7 +4,10 @@
   "private": true,
   "scripts": {
     "start": "react-native start",
-    "test": "jest"
+    "bundle:ios": "react-native bundle --dev false --entry-file index.js --bundle-output ./ios/main.jsbundle --platform ios",
+    "test": "jest",
+    "e2e:ios": "detox test -c ios",
+    "e2e:ios:ci": "detox build -c ios && npm run e2e:ios"
   },
   "dependencies": {
     "react": "16.8.6",
@@ -15,11 +18,23 @@
     "@babel/runtime": "^7.5.0",
     "@react-native-community/eslint-config": "^0.0.3",
     "babel-jest": "^24.1.0",
+    "detox": "^14.3.1",
     "jest": "^24.1.0",
     "metro-react-native-babel-preset": "0.54.1",
     "react-test-renderer": "16.8.6"
   },
   "jest": {
     "preset": "react-native"
+  },
+  "detox": {
+    "test-runner": "jest",
+    "configurations": {
+      "ios": {
+        "binaryPath": "./ios/build/Build/Products/Release-iphonesimulator/testReactNative.app",
+        "build": "xcodebuild -workspace ios/testReactNative.xcworkspace -configuration release -scheme testReactNative -sdk iphonesimulator -derivedDataPath ios/build",
+        "type": "ios.simulator",
+        "name": "iPhone X"
+      }
+    }
   }
 }
