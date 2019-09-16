@@ -7,6 +7,7 @@ describe('Example (hello)', () => {
 
   it('should show "Step One" at the begging', async () => {
     await expect(element(by.text('Step One'))).toBeVisible();
+    expect(true).toBe(true);
   });
 
   it('should render "See Your Changes" in the second slide', async () => {
