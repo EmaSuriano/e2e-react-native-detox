@@ -7,11 +7,14 @@
     "test": "jest",
     "e2e:test": "detox test -c ios.release",
     "e2e:build": "detox build -c ios.release",
-    "e2e:ci": "npm run e2e:build && npm run e2e -- --cleanup"
+    "e2e:ci": "npm run e2e:build && npm run e2e:test -- --cleanup",
+    "lint": "eslint ."
   },
   "dependencies": {
+    "randomcolor": "^0.5.4",
     "react": "16.8.6",
-    "react-native": "0.60.5"
+    "react-native": "0.60.5",
+    "react-swipeable-views-native": "^0.13.2"
   },
   "devDependencies": {
     "@babel/core": "^7.5.0",
@@ -19,6 +22,9 @@
     "@react-native-community/eslint-config": "^0.0.3",
     "babel-jest": "^24.1.0",
     "detox": "^14.3.1",
+    "eslint": "5.16.0",
+    "eslint-plugin-detox": "^1.0.0",
+    "eslint-plugin-jest": "^22.17.0",
     "jest": "^24.1.0",
     "metro-react-native-babel-preset": "0.54.1",
     "react-test-renderer": "16.8.6"

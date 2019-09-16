@@ -13,6 +13,8 @@ import {
   ScrollView,
   View,
   Text,
+  TextInput,
+  Button,
   StatusBar,
 } from 'react-native';
 
@@ -23,6 +25,18 @@ import {
   DebugInstructions,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+import randomColor from 'randomcolor';
+import SwipeableViews from 'react-swipeable-views-native';
+
+const Slide = ({children}) => (
+  <View
+    style={[
+      styles.slide,
+      {backgroundColor: randomColor({luminosity: 'light'})},
+    ]}>
+    {children}
+  </View>
+);
 
 const App = () => {
   return (
@@ -38,32 +52,40 @@ const App = () => {
               <Text style={styles.footer}>Engine: Hermes</Text>
             </View>
           )}
+
           <View style={styles.body}>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Step One</Text>
-              <Text style={styles.sectionDescription}>
-                Edit <Text style={styles.highlight}>App.js</Text> to change this
-                screen and then come back to see your edits.
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>See Your Changes</Text>
-              <Text style={styles.sectionDescription}>
-                <ReloadInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Debug</Text>
-              <Text style={styles.sectionDescription}>
-                <DebugInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Learn More</Text>
-              <Text style={styles.sectionDescription}>
-                Read the docs to discover what to do next:
-              </Text>
-            </View>
+            <SwipeableViews testID="slides">
+              <Slide>
+                <Text style={styles.sectionTitle}>Step One</Text>
+                <Text style={styles.sectionDescription}>
+                  Edit <Text style={styles.highlight}>App.js</Text> to change
+                  this screen and then come back to see your edits.
+                </Text>
+              </Slide>
+              <Slide>
+                <Text style={styles.sectionTitle}>See Your Changes</Text>
+                <Text style={styles.sectionDescription}>
+                  <ReloadInstructions />
+                </Text>
+              </Slide>
+              <Slide>
+                <Text style={styles.sectionTitle}>Debug</Text>
+                <Text style={styles.sectionDescription}>
+                  <DebugInstructions />
+                </Text>
+                <Button onPress={() => alert('Clicked!')} title="Click here!" />
+              </Slide>
+              <Slide>
+                <Text style={styles.sectionTitle}>Learn More</Text>
+                <TextInput
+                  testID="docsInput"
+                  multiline
+                  style={styles.sectionDescription}>
+                  Read the docs to discover what to do next:
+                </TextInput>
+              </Slide>
+            </SwipeableViews>
+
             <LearnMoreLinks />
           </View>
         </ScrollView>
@@ -82,10 +104,6 @@ const styles = StyleSheet.create({
   },
   body: {
     backgroundColor: Colors.white,
-  },
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
   },
   sectionTitle: {
     fontSize: 24,
@@ -108,6 +126,12 @@ const styles = StyleSheet.create({
     padding: 4,
     paddingRight: 12,
     textAlign: 'right',
+  },
+  slide: {
+    padding: 24,
+    height: 200,
+    display: 'flex',
+    justifyContent: 'center',
   },
 });
 
