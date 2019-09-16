@@ -1,6 +1,6 @@
 /* eslint-env detox/detox */
 
-describe('Example (hello)', () => {
+describe('Example', () => {
   beforeEach(async () => {
     await device.reloadReactNative();
   });
