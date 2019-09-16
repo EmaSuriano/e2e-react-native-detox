@@ -9,10 +9,6 @@ describe('Example (hello)', () => {
     await expect(element(by.text('Step One'))).toBeVisible();
   });
 
-  it('should not show "See Your Changes" at the begging', async () => {
-    await expect(element(by.text('See Your Changes'))).not.toBeVisible();
-  });
-
   it('should render "See Your Changes" in the second slide', async () => {
     await element(by.id('slides')).swipe('left');
     await expect(element(by.text('See Your Changes'))).toBeVisible();
