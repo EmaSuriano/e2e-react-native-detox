@@ -10,7 +10,7 @@ describe('Example', () => {
   });
 
   it('should not show "See your Changes" at the begging', async () => {
-    await expect(element(by.text('See your Changes'))).not.toBeVisible();
+    await expect(element(by.text('See your Changes'))).toBeNotVisible();
   });
 
   it('should render "See Your Changes" in the second slide', async () => {
