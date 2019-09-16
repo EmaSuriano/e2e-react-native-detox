@@ -24,5 +24,4 @@ install:
   - cd ios; pod install; cd -;
 
 script:
-  - detox build --configuration ios.release
-  - detox test --configuration ios.release --cleanup
+  - npm run e2e:ci
