@@ -1,6 +1,8 @@
 # e2e-react-native-detox
 
-> Project bootstrap with `react-native init` and configured with Detox to provide End-to-End testing
+> Project bootstrap with `react-native init` and configured with [Detox](https://github.com/wix/Detox) to provide End-to-End testing
+
+This project has been used as a demo for the article of: [End-to-End testing in React Native with Detox](link-not-defined-yet)
 
 ## Setup project
 
@@ -10,14 +12,16 @@
 ~ yarn
 ```
 
-## Running iOS
+## Running Application
+
+### iOS
 
 ```bash
 ~ cd ios; pod install; cd --;
 ~ react-native run-ios
 ```
 
-## Running Android
+### Android
 
 ```bash
 ~ react-native run-android
@@ -30,7 +34,11 @@ Detox is a End-to-End framework focused in mobile applications, in this case it'
 In order to run the tests, first you need to compile the application:
 
 ```bash
-~ yarn e2e:build
+~ yarn e2e:ci
 ```
 
-Once the command is done you should have a new folder inside
+![Detox running](./docs/e2e-full-test.gif)
+
+## License
+
+MIT.
