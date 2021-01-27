@@ -2,7 +2,7 @@
 
 > Project bootstrap with `react-native init` and configured with [Detox](https://github.com/wix/Detox) to provide End-to-End testing
 
-This project has been used as a demo for the article of: [End-to-End testing in React Native with Detox](link-not-defined-yet)
+This project has been used as a demo for the article of: [End-to-End testing in React Native with Detox](https://emasuriano.com/blog/end-to-end-testing-in-react-native-with-detox)
 
 ## Setup project
 
